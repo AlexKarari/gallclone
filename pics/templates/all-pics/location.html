@@ -1,0 +1,16 @@
+{% extends 'all-pics/base.html' %} 
+{% block content %} 
+{{block.super}}
+
+<div class="container">
+    <!-- Looping through category -->
+    {% for category in pics %}
+    <div class="row">
+        <!-- displaying images in a category -->
+        <div class="col-md-6 ">
+            <h2 class="text-center">
+                <img src="{{article.article_image.url}}" class="img-responsive" alt="">
+            </h2>
+        </div>
+</div>
+{% endblock %}
