@@ -22,9 +22,9 @@ def search_results(request):
         message = "You are yet to search for something."
         return render(request, 'all-news/search.html', {"message": message})
 
-def location(request, location_id):
-    try:
-        location = Location.objects.get(id=location_id)
-    except DoesNotExist:
-        raise Http404()
-    return render(request, "all-pics/location.html", {"location": location})
+# def location(request, location_id):
+#     try:
+#         location = Location.objects.get(id=location_id)
+#     except DoesNotExist:
+#         raise Http404()
+#     return render(request, "all-pics/location.html", {"location": location})
