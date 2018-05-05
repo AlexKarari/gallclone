@@ -1,1 +1,1 @@
-web: gunicorn​ ​imagesplash.wsgi --log-file=-
+web: gunicorn​ ​imagesplash.wsgi 
