@@ -14,6 +14,12 @@ class Location(models.Model):
     def __str__(self):
         return self.location
 
+    def save_location(self):
+        self.save()
+
+    def delete_location(self):
+        self.delete()
+
 class Category(models.Model):
     name = models.CharField(max_length=30)
     
@@ -21,8 +27,15 @@ class Category(models.Model):
     def search_by_image_category(cls, search_term):
         pic = cls.objects.filter(name__icontains=search_term)
         return pic
+
     def __str__(self):
         return self.name
+
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()
 
 class Image(models.Model):
     image = models.ImageField(upload_to='picfolder/')
@@ -30,6 +43,7 @@ class Image(models.Model):
     image_description = models.CharField(max_length=30)
     image_location = models.ForeignKey(Location)
     image_category = models.ManyToManyField(Category)
+    time_uploaded = models.DateTimeField(auto_now_add=True, blank=True)
 
     @classmethod
     def get_Image_by_category(cls, category):
@@ -43,3 +57,9 @@ class Image(models.Model):
 
     def __str__(self):
         return self.image_name
+
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()

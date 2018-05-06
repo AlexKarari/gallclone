@@ -1,25 +1,29 @@
 {% extends 'all-pics/base.html' %}
 {% block content %} 
 {{block.super}} 
+<section class="no-touch">
 
-
-<div class="container">
+<div class="wrap">
     <!--Looping through pics-->
-    
-    
-    <div class="row">
-        {% for image in image%}
+    {% for image in image%}
+    <a href="">
+        
+    <div class="box">
+        
         <!-- Displaying images in pics-->
-        <div class="col-md-4" >
+        <div class="boxInner">
             <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+            <div class="titleBox" style="font-family: 'Cabin Sketch', cursive">{{image.image_name|upper}}</div>
         </div>
         {% empty %}
         <div class="rower">
             <h2 class="text-center">There are no images yet.</h2>
         </div>
+        </a>
         {% endfor %}
 
     </div>
    
 </div>
+</section>
 {% endblock %}
