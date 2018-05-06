@@ -4,26 +4,24 @@
 <section class="no-touch">
 
 <div class="wrap">
-    <!--Looping through pics-->
     {% for image in image%}
-    <a href="">
-        
-    <div class="box">
-        
-        <!-- Displaying images in pics-->
-        <div class="boxInner">
-            <img src="{{image.image.url}}" class="img-responsive" alt="Image">
-            <div class="titleBox" style="font-family: 'Cabin Sketch', cursive">{{image.image_name|upper}}</div>
+    <!--Looping through pics-->
+    <a href="{% url 'singleImage' image.id %}">
+        <div class="box">
+            <!-- Displaying images in pics-->
+            <div class="boxInner">
+                <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+                <div class="titleBox" style="font-family: 'Cabin Sketch', cursive">{{image.image_name|upper}}</div>
+            </div>
         </div>
         {% empty %}
         <div class="rower">
             <h2 class="text-center">There are no images yet.</h2>
         </div>
-        </a>
-        {% endfor %}
-
-    </div>
-   
+    </a>
+    {% endfor %}
 </div>
 </section>
 {% endblock %}
+
+

@@ -8,6 +8,11 @@ def index(request):
 
     return render(request, 'all-pics/index.html', {"image": image})
 
+
+def single_photo(request, image_id):
+    image = Image.objects.get(id=image_id)
+    return render(request, 'all-pics/singleimage.html', {'image': image})
+
 def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:
