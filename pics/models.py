@@ -59,8 +59,6 @@ class Image(models.Model):
         pic = cls.objects.filter(image_location=location).all()
         return pic
 
-
-
     def save_image(self):
         self.save()
 

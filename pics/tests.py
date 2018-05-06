@@ -7,7 +7,7 @@ from .models import Location, Category, Image
 
 class LocationTestClass(TestCase):
     def setUp(self):
-        self.location = Location(name='Nairobi')
+        self.location = Location(location='Nairobi')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.location, Location))
@@ -27,14 +27,14 @@ class LocationTestClass(TestCase):
 
 class CategoryTestClass(TestCase):
     def setUp(self):
-        self.category = category(name='science')
+        self.category = Category(name='science')
 
     def test_category_instance(self):
         self.assertTrue(isinstance(self.category, Category))
 
     def test_save_category_method(self):
         self.category.save_category()
-        category_object = category.objects.all()
+        category_object = Category.objects.all()
         self.assertTrue(len(category_object) > 0)
 
     def test_delete_category_method(self):
@@ -47,20 +47,19 @@ class CategoryTestClass(TestCase):
 
 class ImageTestClass(TestCase):
     def setUp(self):
-        self.image = Image(image='imageurl', image_name='nature', image_description='the beautiful nature')
+        self.image = Image(image='imageurl', image_name='camera', image_description='capturing device')
 
     def test_image_instance(self):
         self.assertTrue(isinstance(self.image, Image))
 
-    def test_save_image_method(self):
-        self.image.save_image()
-        Image = Image.objects.all()
-        self.assertTrue(len(Image) > 0)
 
     def test_delete_image_method(self):
         self.image.save_image()
-        Image = Image.objects.all()
+        images = Image.objects.all()
         self.image.delete_image()
-        Image = Image.objects.all()
-        self.assertTrue(len(Image) == 0)
+        images = Image.objects.all()
+        self.assertTrue(len(images) == 0)
+        
+
+
 
